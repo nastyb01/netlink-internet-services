@@ -775,7 +775,10 @@
             <a href="#coverage">Coverage</a>
             <a href="#contact">Contact</a>
             <a class="nav-portal" href="portal.netlink.local/customer.php">Customer Portal</a>
-            <a class="nav-portal" href="#apply">Apply for Internet</a>
+            <a class="nav-portal"
+              href="https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php">
+                 Apply for Internet
+             </a>
         </div>
     </nav>
 </header>
@@ -1216,6 +1219,8 @@
 
     const NETLINK_PACKAGE_API = 'https://posts-ensemble-devon-advertisers.trycloudflare.com/api/packages.php';
 
+    const NETLINK_APPLICATION_URL =
+    NETLINK_PACKAGE_API.replace('/api/packages.php', '/apply.php');
 
     async function loadInternetPackages() {
 
@@ -1343,12 +1348,9 @@
                 const applyLink = document.createElement('a');
 
                 applyLink.href =
-                    'https://wa.me/254106054661?text=' +
-                    encodeURIComponent(
-                        'Hello NETLINK, I am interested in the ' +
-                        pkg.name +
-                        ' internet package. Please assist me with an application.'
-                    );
+                      NETLINK_APPLICATION_URL +
+                     '?package_id=' +
+                      encodeURIComponent(pkg.id);
 
                 applyLink.className = 'button';
                 applyLink.target = '_blank';
