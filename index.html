@@ -7,8 +7,6 @@
     <meta name="description" content="NETLINK Internet Services provides Wi-Fi hotspot and home internet connectivity solutions in Kenya.">
     <meta name="theme-color" content="#071b38">
 
-    <link rel="icon" type="image/png" href="assets/img/logo.png">
-
     <title>NETLINK Internet Services | Reliable Internet</title>
 
     <style>
@@ -84,7 +82,7 @@
                 linear-gradient(120deg, #073b91, #0878ed 70%, #0754bd);
             color: white;
             text-align: center;
-            padding: 25px 5% 30px;
+            padding: 48px 5% 42px;
         }
 
         .hero::before,
@@ -114,12 +112,30 @@
             z-index: 1;
         }
 
-        .hero-logo {
-            width: min(340px, 80%);
-            height: 125px;
-            object-fit: contain;
-            display: block;
-            margin: 0 auto 8px;
+        /* CSS-BASED NETLINK BRANDING */
+
+        .hero-brand {
+            display: inline-block;
+            font-size: clamp(65px, 10vw, 110px);
+            font-weight: 900;
+            letter-spacing: -7px;
+            line-height: 1.1;
+            color: #ffffff;
+            text-shadow: 0 5px 15px rgba(0, 25, 90, .25);
+            margin-bottom: 8px;
+        }
+
+        .hero-brand span {
+            color: #071b38;
+        }
+
+        .hero-tagline {
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #dcecff;
+            margin-bottom: 25px;
         }
 
         .hero h1 {
@@ -345,7 +361,6 @@
         /* TABLET AND MOBILE */
 
         @media (max-width: 850px) {
-
             .services {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -364,7 +379,6 @@
         }
 
         @media (max-width: 600px) {
-
             header {
                 padding: 12px 5%;
             }
@@ -389,12 +403,17 @@
             }
 
             .hero {
-                padding: 25px 6% 35px;
+                padding: 35px 6% 35px;
             }
 
-            .hero-logo {
-                width: min(280px, 90%);
-                height: 105px;
+            .hero-brand {
+                font-size: 65px;
+                letter-spacing: -4px;
+            }
+
+            .hero-tagline {
+                font-size: 10px;
+                letter-spacing: 3px;
             }
 
             .hero h1 {
@@ -499,17 +518,17 @@
     <section class="hero" id="home">
         <div class="hero-content">
 
-            <img
-                src="assets/img/logo.png"
-                alt="NETLINK Internet Services Logo"
-                class="hero-logo"
-            >
+            <div class="hero-brand">
+                NET<span>LINK</span>
+            </div>
+
+            <div class="hero-tagline">
+                INTERNET SERVICES
+            </div>
 
             <h1>Reliable Internet. Connected Living.</h1>
 
-            <p>
-                Welcome to NETLINK Internet Services.
-            </p>
+            <p>Welcome to NETLINK Internet Services.</p>
 
             <p>
                 We provide internet connectivity solutions for
@@ -536,9 +555,7 @@
 
             <div class="service-card">
                 <div class="icon">&#128246;</div>
-
                 <h3>Wi-Fi Hotspot</h3>
-
                 <p>
                     Convenient prepaid Wi-Fi access with
                     flexible internet packages and
@@ -548,9 +565,7 @@
 
             <div class="service-card">
                 <div class="icon">&#127968;</div>
-
                 <h3>Home Internet</h3>
-
                 <p>
                     Home internet subscription solutions
                     with customer accounts, package
@@ -560,9 +575,7 @@
 
             <div class="service-card">
                 <div class="icon">&#127970;</div>
-
                 <h3>Business Connectivity</h3>
-
                 <p>
                     Internet connectivity solutions for
                     businesses and other establishments
@@ -578,7 +591,6 @@
     <section class="about-section" id="about">
 
         <div class="about-content">
-
             <h2>About NETLINK Internet Services</h2>
 
             <p>
@@ -594,7 +606,6 @@
                 through flexible packages, digital payments
                 and efficient customer service.
             </p>
-
         </div>
 
         <div class="about-illustration">
@@ -645,7 +656,6 @@
 <!-- FOOTER -->
 
 <footer>
-
     <div class="footer-content">
 
         <p>
@@ -660,7 +670,6 @@
         </p>
 
     </div>
-
 </footer>
 
 </body>
