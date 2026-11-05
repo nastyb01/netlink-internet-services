@@ -1168,210 +1168,205 @@
 </footer>
 
 <script>
-    // Automatically update the copyright year.
-    document.getElementById("year").textContent =
-        new Date().getFullYear();
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+const NETLINK_PACKAGE_API =
+    'https://posts-ensemble-devon-advertisers.trycloudflare.com/api/packages.php';
+
+const NETLINK_APPLICATION_URL =
+    'https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php';
 
 
-    /*
-     * NETLINK PUBLIC PAGE URLS
-     */
+/*
+ * FORCE ALL APPLICATION BUTTONS TO OPEN THE PHP FORM
+ */
+function fixApplyButtons() {
 
-    const NETLINK_PACKAGE_API =
-        'https://posts-ensemble-devon-advertisers.trycloudflare.com/api/packages.php';
+    document.querySelectorAll('a').forEach(function(link) {
 
-    const NETLINK_APPLICATION_URL =
-        'https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php';
+        const buttonText = link.textContent.trim().toLowerCase();
 
-    const NETLINK_CUSTOMER_PORTAL_URL =
-        'https://posts-ensemble-devon-advertisers.trycloudflare.com/customer.php';
+        if (
+            buttonText.includes('apply for internet') ||
+            buttonText.includes('apply for package')
+        ) {
 
+            // Preserve package ID when one is already attached.
+            const existingPackageId =
+                new URL(link.href, window.location.href)
+                    .searchParams.get('package_id');
 
-    /*
-     * LOAD INTERNET PACKAGES
-     */
-
-    async function loadInternetPackages() {
-
-        const container =
-            document.getElementById('internet-packages');
-
-        const note =
-            document.getElementById('package-note');
-
-        try {
-
-            const response = await fetch(NETLINK_PACKAGE_API, {
-                method: 'GET',
-                headers: {
-                    'Accept': 'application/json'
-                },
-                cache: 'no-store'
-            });
-
-            if (!response.ok) {
-                throw new Error('Unable to retrieve packages.');
-            }
-
-            const result = await response.json();
-
-            if (
-                !result.success ||
-                !Array.isArray(result.packages)
-            ) {
-                throw new Error('Invalid package response.');
-            }
-
-            if (result.packages.length === 0) {
-
-                container.innerHTML = '';
-
-                const card = document.createElement('div');
-                card.className = 'package-card';
-
-                const heading = document.createElement('h3');
-                heading.textContent = 'No Packages Available';
-
-                const message = document.createElement('p');
-                message.textContent =
-                    'Please contact NETLINK for available subscriptions.';
-
-                const contactLink = document.createElement('a');
-                contactLink.href =
-                    'https://wa.me/254106054661';
-                contactLink.className = 'button';
-                contactLink.target = '_blank';
-                contactLink.rel = 'noopener noreferrer';
-                contactLink.textContent = 'Contact NETLINK';
-
-                card.appendChild(heading);
-                card.appendChild(message);
-                card.appendChild(contactLink);
-
-                container.appendChild(card);
-
-                return;
-            }
-
-            container.innerHTML = '';
-
-            result.packages.forEach(function(pkg, index) {
-
-                const card = document.createElement('div');
-                card.className = 'package-card';
-
-                if (index === 1) {
-                    card.classList.add('featured');
-                }
-
-                const heading = document.createElement('h3');
-                heading.textContent = pkg.name;
-
-                const price = document.createElement('div');
-                price.className = 'package-price';
-                price.textContent =
-                    'KES ' + Number(pkg.price).toLocaleString('en-KE');
-
-                const subscription = document.createElement('div');
-                subscription.className = 'package-duration';
-
-                if (pkg.package_type === 'data') {
-
-                    subscription.textContent =
-                        Number(pkg.data_limit).toLocaleString('en-KE') +
-                        ' MB Data';
-
-                } else {
-
-                    subscription.textContent =
-                        pkg.duration + ' ' + pkg.duration_unit;
-                }
-
-                const speed = document.createElement('p');
-
-                const download =
-                    Number(pkg.download_speed_mbps);
-
-                const upload =
-                    Number(pkg.upload_speed_mbps);
-
-                if (
-                    Number.isFinite(download) &&
-                    Number.isFinite(upload) &&
-                    download > 0 &&
-                    upload > 0
-                ) {
-
-                    speed.textContent =
-                        download + ' Mbps Download / ' +
-                        upload + ' Mbps Upload';
-
-                } else {
-
-                    speed.textContent =
-                        'Contact us for package speed details.';
-                }
-
-                const description = document.createElement('p');
-
-                description.textContent =
-                    'Internet subscription for your home or business.';
-
-                const applyLink = document.createElement('a');
-
-                applyLink.href =
-                    NETLINK_APPLICATION_URL +
+            link.href = existingPackageId
+                ? NETLINK_APPLICATION_URL +
                     '?package_id=' +
-                    encodeURIComponent(pkg.id);
+                    encodeURIComponent(existingPackageId)
+                : NETLINK_APPLICATION_URL;
 
-                applyLink.className = 'button';
-                applyLink.textContent = 'Apply for Package';
-
-                card.appendChild(heading);
-                card.appendChild(price);
-                card.appendChild(subscription);
-                card.appendChild(speed);
-                card.appendChild(description);
-                card.appendChild(applyLink);
-
-                container.appendChild(card);
-
-            });
-
-            note.textContent =
-                'Prices and package availability are subject to your service area.';
-
-        } catch (error) {
-
-            console.error(
-                'NETLINK package loading error:',
-                error
-            );
-
-            note.textContent =
-                'Package information is temporarily unavailable. Please contact NETLINK.';
-
+            link.removeAttribute('target');
+            link.removeAttribute('onclick');
         }
-    }
+    });
+}
 
 
-    /*
-     * INITIALIZE WEBSITE
-     */
+/*
+ * LOAD INTERNET PACKAGES
+ */
+async function loadInternetPackages() {
 
-    document.addEventListener('DOMContentLoaded', function() {
+    const container =
+        document.getElementById('internet-packages');
 
-        loadInternetPackages();
+    const note =
+        document.getElementById('package-note');
 
-        // Keep customer portal links consistent.
-        document.querySelectorAll(
-            'a[href="https://posts-ensemble-devon-advertisers.trycloudflare.com/customer.php"]'
-        ).forEach(function(link) {
-            link.href = NETLINK_CUSTOMER_PORTAL_URL;
+    try {
+
+        const response = await fetch(NETLINK_PACKAGE_API, {
+            method: 'GET',
+            headers: {
+                'Accept': 'application/json'
+            },
+            cache: 'no-store'
         });
 
-    });
+        if (!response.ok) {
+            throw new Error('Unable to retrieve packages.');
+        }
 
+        const result = await response.json();
+
+        if (
+            !result.success ||
+            !Array.isArray(result.packages)
+        ) {
+            throw new Error('Invalid package response.');
+        }
+
+        container.innerHTML = '';
+
+        if (result.packages.length === 0) {
+
+            const card = document.createElement('div');
+            card.className = 'package-card';
+
+            const heading = document.createElement('h3');
+            heading.textContent = 'No Packages Available';
+
+            const message = document.createElement('p');
+            message.textContent =
+                'Please contact NETLINK for available subscriptions.';
+
+            card.appendChild(heading);
+            card.appendChild(message);
+
+            container.appendChild(card);
+
+            return;
+        }
+
+        result.packages.forEach(function(pkg, index) {
+
+            const card = document.createElement('div');
+            card.className = 'package-card';
+
+            if (index === 1) {
+                card.classList.add('featured');
+            }
+
+            const heading = document.createElement('h3');
+            heading.textContent = pkg.name;
+
+            const price = document.createElement('div');
+            price.className = 'package-price';
+            price.textContent =
+                'KES ' + Number(pkg.price).toLocaleString('en-KE');
+
+            const subscription = document.createElement('div');
+            subscription.className = 'package-duration';
+
+            if (pkg.package_type === 'data') {
+
+                subscription.textContent =
+                    Number(pkg.data_limit).toLocaleString('en-KE') +
+                    ' MB Data';
+
+            } else {
+
+                subscription.textContent =
+                    pkg.duration + ' ' + pkg.duration_unit;
+            }
+
+            const speed = document.createElement('p');
+
+            const download = Number(pkg.download_speed_mbps);
+            const upload = Number(pkg.upload_speed_mbps);
+
+            if (
+                Number.isFinite(download) &&
+                Number.isFinite(upload) &&
+                download > 0 &&
+                upload > 0
+            ) {
+
+                speed.textContent =
+                    download + ' Mbps Download / ' +
+                    upload + ' Mbps Upload';
+
+            } else {
+
+                speed.textContent =
+                    'Contact us for package speed details.';
+            }
+
+            const description = document.createElement('p');
+            description.textContent =
+                'Internet subscription for your home or business.';
+
+            const applyLink = document.createElement('a');
+
+            applyLink.href =
+                NETLINK_APPLICATION_URL +
+                '?package_id=' +
+                encodeURIComponent(pkg.id);
+
+            applyLink.className = 'button';
+            applyLink.textContent = 'Apply for Package';
+
+            card.appendChild(heading);
+            card.appendChild(price);
+            card.appendChild(subscription);
+            card.appendChild(speed);
+            card.appendChild(description);
+            card.appendChild(applyLink);
+
+            container.appendChild(card);
+
+        });
+
+        note.textContent =
+            'Prices and package availability are subject to your service area.';
+
+        fixApplyButtons();
+
+    } catch (error) {
+
+        console.error('NETLINK package loading error:', error);
+
+        note.textContent =
+            'Package information is temporarily unavailable. Please contact NETLINK.';
+    }
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    fixApplyButtons();
+
+    loadInternetPackages();
+
+});
 </script>
 
 </body>
