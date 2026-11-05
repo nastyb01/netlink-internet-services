@@ -1,13 +1,23 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description" content="NETLINK Internet Services provides Wi-Fi hotspot and home internet connectivity solutions in Kenya.">
+    <title>NETLINK Internet Services | Reliable Internet in Kenya</title>
+
+    <meta name="description" content="NETLINK Internet Services provides affordable Wi-Fi hotspot, home internet and business connectivity solutions in Kenya.">
+    <meta name="keywords" content="NETLINK, internet Kenya, Wi-Fi hotspot, home internet, internet packages, broadband">
+    <meta name="author" content="NETLINK Internet Services">
     <meta name="theme-color" content="#071b38">
 
-    <title>NETLINK Internet Services | Reliable Internet</title>
+    <meta property="og:title" content="NETLINK Internet Services">
+    <meta property="og:description" content="Reliable Internet. Connected Living. Discover NETLINK internet services in Kenya.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nastyb01.github.io/netlink-internet-services/">
+
+    <link rel="canonical" href="https://nastyb01.github.io/netlink-internet-services/">
 
     <style>
         * {
@@ -18,6 +28,7 @@
 
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 75px;
         }
 
         body {
@@ -27,14 +38,20 @@
             line-height: 1.6;
         }
 
-        /* =========================
-           HEADER
-        ========================= */
+        a {
+            transition: .2s ease;
+        }
+
+        /* HEADER */
 
         header {
             background: #071b38;
             color: white;
             padding: 10px 3%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 3px 12px rgba(0,0,0,.12);
         }
 
         nav {
@@ -60,34 +77,42 @@
         nav .nav-links {
             display: flex;
             align-items: center;
-            gap: 35px;
+            gap: 22px;
+            flex-wrap: wrap;
         }
 
         nav .nav-links a {
             color: white;
             text-decoration: none;
-            font-size: 15px;
-            transition: color .2s ease;
+            font-size: 14px;
         }
 
         nav .nav-links a:hover {
             color: #1683ff;
         }
 
-        /* =========================
-           HERO SECTION
-        ========================= */
+        .nav-portal {
+            background: #0878f9;
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-weight: bold;
+        }
+
+        .nav-portal:hover {
+            background: #0064d9;
+            color: white !important;
+        }
+
+        /* HERO */
 
         .hero {
             position: relative;
             isolation: isolate;
             overflow: hidden;
-
             background:
                 radial-gradient(
                     ellipse at 50% 5%,
-                    rgba(255,255,255,.48) 0%,
-                    rgba(160,220,255,.28) 18%,
+                    rgba(255,255,255,.48),
                     transparent 43%
                 ),
                 linear-gradient(
@@ -96,13 +121,10 @@
                     #087df5 52%,
                     #0064dc 100%
                 );
-
             color: white;
             text-align: center;
-            padding: 12px 5% 16px;
+            padding: 12px 5% 30px;
         }
-
-        /* LEFT AND RIGHT DECORATIVE WAVES */
 
         .hero::before,
         .hero::after {
@@ -112,7 +134,7 @@
             width: 78%;
             height: 240px;
             border-radius: 50%;
-            border: 45px solid rgba(0, 32, 105, .25);
+            border: 45px solid rgba(0,32,105,.25);
             pointer-events: none;
         }
 
@@ -126,10 +148,12 @@
             bottom: -185px;
             right: -35%;
             transform: rotate(-17deg);
-            border-color: rgba(0, 32, 105, .25);
         }
 
-        /* Additional lower-left wave */
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
 
         .hero-content::before {
             content: "";
@@ -140,19 +164,11 @@
             left: -30%;
             bottom: -145px;
             border-radius: 50%;
-            border: 40px solid rgba(0, 32, 105, .19);
+            border: 40px solid rgba(0,32,105,.19);
             transform: rotate(-10deg);
-            pointer-events: none;
         }
 
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        /* =========================
-           CUSTOM NETLINK GRAPHIC LOGO
-        ========================= */
+        /* NETLINK SVG LOGO */
 
         .hero-logo {
             position: relative;
@@ -163,32 +179,23 @@
             isolation: isolate;
         }
 
-        /* Illuminated background behind the logo */
-
         .hero-logo::before {
             content: "";
             position: absolute;
             z-index: -1;
-
             width: 125%;
             height: 150%;
-
             top: -22%;
             left: -12.5%;
-
             background: radial-gradient(
                 ellipse,
-                rgba(255,255,255,.95) 0%,
+                rgba(255,255,255,.95),
                 rgba(235,248,255,.75) 23%,
                 rgba(170,222,255,.38) 43%,
-                rgba(80,165,255,.10) 65%,
                 transparent 78%
             );
-
             filter: blur(15px);
         }
-
-        /* Logo SVG */
 
         .hero-logo svg {
             display: block;
@@ -197,21 +204,16 @@
             overflow: visible;
         }
 
-        /* =========================
-           HERO TEXT
-        ========================= */
-
         .hero h1 {
-            font-size: clamp(30px, 4.5vw, 46px);
+            font-size: clamp(30px,4.5vw,46px);
             line-height: 1.2;
             margin-bottom: 5px;
-            font-weight: bold;
-            text-shadow: 0 2px 5px rgba(0, 25, 90, .12);
+            text-shadow: 0 2px 5px rgba(0,25,90,.12);
         }
 
         .hero p {
-            color: #ffffff;
-            font-size: clamp(15px, 2vw, 19px);
+            color: white;
+            font-size: clamp(15px,2vw,19px);
             max-width: 1050px;
             margin: 0 auto;
         }
@@ -220,13 +222,12 @@
             display: inline-block;
             background: #0878f9;
             color: white;
-            padding: 14px 32px;
+            padding: 13px 28px;
             border-radius: 35px;
             text-decoration: none;
             margin-top: 15px;
             font-weight: bold;
-            font-size: 16px;
-            transition: background .2s ease, transform .2s ease;
+            border: 1px solid rgba(255,255,255,.3);
         }
 
         .button:hover {
@@ -234,18 +235,21 @@
             transform: translateY(-2px);
         }
 
-        /* =========================
-           SERVICES
-        ========================= */
-
-        .services-section {
-            padding: 15px 2.5% 26px;
-            background: #ffffff;
+        .button-white {
+            background: white;
+            color: #0756bb;
         }
+
+        .button-white:hover {
+            background: #e7f1ff;
+            color: #071b38;
+        }
+
+        /* GENERAL SECTION HEADINGS */
 
         .section-title {
             text-align: center;
-            margin-bottom: 8px;
+            margin-bottom: 15px;
         }
 
         .section-title h2 {
@@ -255,29 +259,35 @@
 
         .section-title p {
             color: #475d80;
-            font-size: 18px;
+            font-size: 17px;
+        }
+
+        /* SERVICES */
+
+        .services-section {
+            padding: 30px 2.5%;
+            background: white;
         }
 
         .services {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(3,1fr);
             gap: 25px;
-            margin-top: 5px;
         }
 
         .service-card {
-            background: #ffffff;
-            padding: 20px 25px;
+            background: white;
+            padding: 25px;
             border-radius: 15px;
             border: 1px solid #e1ebff;
-            box-shadow: 0 5px 20px rgba(0, 75, 180, .07);
+            box-shadow: 0 5px 20px rgba(0,75,180,.07);
             text-align: center;
-            transition: transform .2s ease, box-shadow .2s ease;
+            transition: .2s ease;
         }
 
         .service-card:hover {
             transform: translateY(-4px);
-            box-shadow: 0 8px 25px rgba(0, 75, 180, .12);
+            box-shadow: 0 8px 25px rgba(0,75,180,.12);
         }
 
         .service-card .icon {
@@ -286,8 +296,8 @@
             justify-content: center;
             width: 78px;
             height: 78px;
-            margin: 0 auto 8px;
-            background: linear-gradient(135deg, #0878f9, #0060d8);
+            margin: 0 auto 10px;
+            background: linear-gradient(135deg,#0878f9,#0060d8);
             color: white;
             border-radius: 50%;
             font-size: 36px;
@@ -295,30 +305,115 @@
 
         .service-card h3 {
             color: #071b55;
-            font-size: 23px;
+            font-size: 22px;
             margin-bottom: 5px;
         }
 
         .service-card p {
             color: #142b55;
-            font-size: 16px;
-            line-height: 1.5;
-            max-width: 360px;
+            font-size: 15px;
+        }
+
+        /* PACKAGES */
+
+        .packages-section {
+            padding: 40px 4%;
+            background: #f5f8fc;
+        }
+
+        .packages {
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 22px;
+            max-width: 1050px;
             margin: auto;
         }
 
-        /* =========================
-           ABOUT
-        ========================= */
+        .package-card {
+            background: white;
+            border: 1px solid #dce9fb;
+            border-radius: 16px;
+            padding: 25px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,75,180,.07);
+        }
+
+        .package-card.featured {
+            border: 2px solid #0878f9;
+            transform: translateY(-5px);
+        }
+
+        .package-card h3 {
+            color: #071b55;
+            font-size: 22px;
+        }
+
+        .package-price {
+            color: #0878f9;
+            font-size: 34px;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .package-duration {
+            color: #475d80;
+            font-weight: bold;
+        }
+
+        .package-card p {
+            color: #475d80;
+            margin: 8px 0;
+        }
+
+        .package-card .button {
+            margin-top: 15px;
+        }
+
+        .package-note {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+            color: #536783;
+        }
+
+        /* CUSTOMER PORTAL */
+
+        .portal-section {
+            margin: 0;
+            padding: 40px 5%;
+            text-align: center;
+            color: white;
+            background: linear-gradient(110deg,#0646aa,#087df5);
+        }
+
+        .portal-section h2 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .portal-section p {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .portal-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        /* ABOUT */
 
         .about-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 30px;
-            margin: 0 2.5% 12px;
-            padding: 22px 30px;
-            background: linear-gradient(110deg, #e0edff, #eaf3ff);
+            margin: 25px 2.5% 15px;
+            padding: 25px 30px;
+            background: linear-gradient(110deg,#e0edff,#eaf3ff);
             border-radius: 15px;
         }
 
@@ -329,13 +424,13 @@
         .about-content h2 {
             color: #071b55;
             font-size: 27px;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
         }
 
         .about-content p {
             color: #102957;
             font-size: 15px;
-            line-height: 1.5;
+            margin-bottom: 8px;
         }
 
         .about-illustration {
@@ -357,18 +452,70 @@
             font-weight: bold;
         }
 
-        /* =========================
-           CONTACT
-        ========================= */
+        /* COVERAGE */
+
+        .coverage-section {
+            margin: 15px 2.5%;
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            background: white;
+            border: 1px solid #e1ebff;
+            box-shadow: 0 5px 20px rgba(0,75,180,.05);
+        }
+
+        .coverage-section h2 {
+            color: #071b55;
+            font-size: 27px;
+        }
+
+        .coverage-section p {
+            color: #475d80;
+            max-width: 750px;
+            margin: 8px auto;
+        }
+
+        /* FAQ */
+
+        .faq-section {
+            padding: 40px 5%;
+            background: #f5f8fc;
+        }
+
+        .faq-list {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .faq-list details {
+            background: white;
+            margin-bottom: 12px;
+            padding: 16px 20px;
+            border-radius: 10px;
+            border: 1px solid #e1ebff;
+        }
+
+        .faq-list summary {
+            cursor: pointer;
+            color: #071b55;
+            font-weight: bold;
+        }
+
+        .faq-list details p {
+            color: #475d80;
+            padding-top: 10px;
+        }
+
+        /* CONTACT */
 
         .contact-section {
             display: grid;
             grid-template-columns: 1.5fr .65fr 1.1fr 1.1fr;
             align-items: center;
             gap: 15px;
-            margin: 0 2.5% 15px;
-            padding: 15px 30px;
-            background: linear-gradient(110deg, #e0edff, #eaf3ff);
+            margin: 15px 2.5%;
+            padding: 20px 30px;
+            background: linear-gradient(110deg,#e0edff,#eaf3ff);
             border-radius: 15px;
         }
 
@@ -389,7 +536,7 @@
             padding: 5px 15px;
             border-left: 1px solid #a9c7ed;
             color: #071b55;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         .contact-icon {
@@ -402,15 +549,57 @@
             overflow-wrap: anywhere;
         }
 
-        /* =========================
-           FOOTER
-        ========================= */
+        /* WHATSAPP */
+
+        .whatsapp-float {
+            position: fixed;
+            right: 20px;
+            bottom: 20px;
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 58px;
+            height: 58px;
+            background: #20bd5a;
+            color: white;
+            font-size: 30px;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,.2);
+        }
+
+        .whatsapp-float:hover {
+            background: #159b47;
+            transform: translateY(-3px);
+        }
+
+        /* SOCIAL LINKS */
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 18px;
+            margin: 12px 0;
+        }
+
+        .social-links a {
+            color: #dbeafe;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            color: #1683ff;
+        }
+
+        /* FOOTER */
 
         footer {
             background: #071b38;
             color: #dbeafe;
             text-align: center;
-            padding: 13px 15px;
+            padding: 20px 15px;
             font-size: 13px;
         }
 
@@ -430,18 +619,16 @@
             font-style: italic;
         }
 
-        /* =========================
-           TABLET
-        ========================= */
+        /* TABLET */
 
-        @media (max-width: 850px) {
-
-            .services {
-                grid-template-columns: repeat(2, 1fr);
+        @media(max-width:850px) {
+            .services,
+            .packages {
+                grid-template-columns: repeat(2,1fr);
             }
 
             .contact-section {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2,1fr);
             }
 
             .contact-heading {
@@ -453,14 +640,12 @@
             }
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE */
 
-        @media (max-width: 600px) {
-
+        @media(max-width:600px) {
             header {
                 padding: 12px 5%;
+                position: relative;
             }
 
             nav {
@@ -474,15 +659,12 @@
 
             nav .nav-links {
                 justify-content: center;
-                flex-wrap: wrap;
-                gap: 15px;
+                gap: 12px;
             }
 
             nav .nav-links a {
-                font-size: 13px;
+                font-size: 12px;
             }
-
-            /* Mobile hero */
 
             .hero {
                 padding: 22px 6% 30px;
@@ -492,24 +674,15 @@
                 width: 340px;
                 max-width: 100%;
                 height: 118px;
-                margin-bottom: 8px;
             }
 
             .hero h1 {
-                font-size: 31px;
+                font-size: 30px;
             }
 
-            .hero p {
-                font-size: 15px;
-            }
-
-            .button {
-                margin-top: 18px;
-            }
-
-            /* Mobile services */
-
-            .services-section {
+            .services-section,
+            .packages-section,
+            .faq-section {
                 padding: 30px 5%;
             }
 
@@ -517,26 +690,20 @@
                 font-size: 27px;
             }
 
-            .section-title p {
-                font-size: 15px;
-            }
-
-            .services {
+            .services,
+            .packages {
                 grid-template-columns: 1fr;
                 gap: 15px;
-                margin-top: 20px;
             }
 
-            .service-card {
-                padding: 25px 20px;
+            .package-card.featured {
+                transform: none;
             }
-
-            /* Mobile about */
 
             .about-section {
                 flex-direction: column;
                 text-align: center;
-                margin: 0 5% 15px;
+                margin: 15px 5%;
                 padding: 25px 20px;
             }
 
@@ -551,11 +718,14 @@
                 padding-top: 15px;
             }
 
-            /* Mobile contact */
+            .coverage-section {
+                margin: 15px 5%;
+                padding: 25px 18px;
+            }
 
             .contact-section {
                 grid-template-columns: 1fr;
-                margin: 0 5% 15px;
+                margin: 15px 5%;
                 padding: 22px;
                 gap: 15px;
             }
@@ -571,8 +741,6 @@
                 padding: 12px 5px 0;
             }
 
-            /* Mobile footer */
-
             .footer-content {
                 flex-direction: column;
                 gap: 5px;
@@ -580,6 +748,13 @@
 
             .footer-divider {
                 display: none;
+            }
+
+            .whatsapp-float {
+                width: 52px;
+                height: 52px;
+                right: 14px;
+                bottom: 14px;
             }
         }
     </style>
@@ -596,139 +771,79 @@
         <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
+            <a href="#packages">Packages</a>
             <a href="#about">About</a>
+            <a href="#coverage">Coverage</a>
             <a href="#contact">Contact</a>
+            <a class="nav-portal" href="CUSTOMER_PORTAL_URL">Customer Portal</a>
         </div>
     </nav>
 </header>
 
 <main>
 
-    <!-- HERO SECTION -->
+    <!-- HERO -->
 
     <section class="hero" id="home">
-
         <div class="hero-content">
 
-            <!-- CUSTOM NETLINK LOGO -->
-
             <div class="hero-logo">
-
-                <svg
-                    viewBox="0 0 440 150"
-                    xmlns="http://www.w3.org/2000/svg"
-                    role="img"
-                    aria-label="NETLINK Internet Services"
-                >
+                <svg viewBox="0 0 440 150"
+                     xmlns="http://www.w3.org/2000/svg"
+                     role="img"
+                     aria-label="NETLINK Internet Services">
 
                     <defs>
-                        <linearGradient
-                            id="ringGradient"
-                            x1="0%"
-                            y1="0%"
-                            x2="100%"
-                            y2="100%"
-                        >
+                        <linearGradient id="ringGradient" x1="0%" y1="0%" x2="100%" y2="100%">
                             <stop offset="0%" stop-color="#0641b5"/>
                             <stop offset="100%" stop-color="#092c70"/>
                         </linearGradient>
 
-                        <linearGradient
-                            id="linkGradient"
-                            x1="0%"
-                            y1="0%"
-                            x2="100%"
-                            y2="0%"
-                        >
+                        <linearGradient id="linkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                             <stop offset="0%" stop-color="#0878f9"/>
                             <stop offset="100%" stop-color="#0062db"/>
                         </linearGradient>
                     </defs>
 
-                    <!-- CURVED SEMI-CIRCLE RING -->
+                    <path d="M35 106 C4 89 14 58 55 37 C101 12 169 5 225 21 C178 10 118 19 75 39 C40 56 23 78 43 96 C55 107 77 111 101 111 C73 115 49 114 35 106 Z"
+                          fill="url(#ringGradient)"/>
 
-                    <path
-                        d="
-                            M 35 106
-                            C 4 89, 14 58, 55 37
-                            C 101 12, 169 5, 225 21
-                            C 178 10, 118 19, 75 39
-                            C 40 56, 23 78, 43 96
-                            C 55 107, 77 111, 101 111
-                            C 73 115, 49 114, 35 106
-                            Z
-                        "
-                        fill="url(#ringGradient)"
-                    />
+                    <text x="54" y="112"
+                          font-family="Arial, Helvetica, sans-serif"
+                          font-size="76"
+                          font-weight="900"
+                          font-style="italic"
+                          letter-spacing="-5"
+                          fill="#092c68">NET</text>
 
-                    <!-- MAIN NETLINK WORDMARK -->
+                    <text x="194" y="112"
+                          font-family="Arial, Helvetica, sans-serif"
+                          font-size="76"
+                          font-weight="900"
+                          font-style="italic"
+                          letter-spacing="-5"
+                          fill="url(#linkGradient)">LINK</text>
 
-                    <text
-                        x="54"
-                        y="112"
-                        font-family="Arial, Helvetica, sans-serif"
-                        font-size="76"
-                        font-weight="900"
-                        font-style="italic"
-                        letter-spacing="-5"
-                        fill="#092c68"
-                    >NET</text>
-
-                    <text
-                        x="194"
-                        y="112"
-                        font-family="Arial, Helvetica, sans-serif"
-                        font-size="76"
-                        font-weight="900"
-                        font-style="italic"
-                        letter-spacing="-5"
-                        fill="url(#linkGradient)"
-                    >LINK</text>
-
-                    <!-- WIFI SIGNAL ABOVE THE LOGO -->
-
-                    <g
-                        fill="none"
-                        stroke="#0644c9"
-                        stroke-width="8"
-                        stroke-linecap="round"
-                    >
-
-                        <path d="M 190 17 Q 220 -9 250 17"/>
-
-                        <path d="M 199 29 Q 220 10 241 29"/>
-
-                        <path d="M 208 41 Q 220 30 232 41"/>
-
+                    <g fill="none"
+                       stroke="#0644c9"
+                       stroke-width="8"
+                       stroke-linecap="round">
+                        <path d="M190 17 Q220 -9 250 17"/>
+                        <path d="M199 29 Q220 10 241 29"/>
+                        <path d="M208 41 Q220 30 232 41"/>
                     </g>
 
-                    <!-- WIFI DOT -->
+                    <circle cx="220" cy="51" r="5" fill="#0644c9"/>
 
-                    <circle
-                        cx="220"
-                        cy="51"
-                        r="5"
-                        fill="#0644c9"
-                    />
-
-                    <!-- INTERNET SERVICES -->
-
-                    <text
-                        x="220"
-                        y="137"
-                        text-anchor="middle"
-                        font-family="Arial, Helvetica, sans-serif"
-                        font-size="19"
-                        font-weight="900"
-                        letter-spacing="3"
-                        fill="#071b55"
-                    >INTERNET SERVICES</text>
-
+                    <text x="220" y="137"
+                          text-anchor="middle"
+                          font-family="Arial, Helvetica, sans-serif"
+                          font-size="19"
+                          font-weight="900"
+                          letter-spacing="3"
+                          fill="#071b55">INTERNET SERVICES</text>
                 </svg>
-
             </div>
-
-            <!-- HERO HEADING -->
 
             <h1>Reliable Internet. Connected Living.</h1>
 
@@ -744,13 +859,11 @@
             </a>
 
         </div>
-
     </section>
 
-    <!-- SERVICES SECTION -->
+    <!-- SERVICES -->
 
     <section class="services-section" id="services">
-
         <div class="section-title">
             <h2>Our Internet Services</h2>
             <p>Connectivity solutions designed for different needs.</p>
@@ -760,58 +873,110 @@
 
             <div class="service-card">
                 <div class="icon">&#128246;</div>
-
                 <h3>Wi-Fi Hotspot</h3>
-
                 <p>
-                    Convenient prepaid Wi-Fi access with
-                    flexible internet packages and
-                    automated payment options.
+                    Convenient prepaid Wi-Fi access with flexible
+                    internet packages and automated payment options.
                 </p>
             </div>
 
             <div class="service-card">
                 <div class="icon">&#127968;</div>
-
                 <h3>Home Internet</h3>
-
                 <p>
-                    Home internet subscription solutions
-                    with customer accounts, package
-                    management and subscription renewals.
+                    Home internet subscription solutions with
+                    customer accounts, package management
+                    and subscription renewals.
                 </p>
             </div>
 
             <div class="service-card">
                 <div class="icon">&#127970;</div>
-
                 <h3>Business Connectivity</h3>
-
                 <p>
-                    Internet connectivity solutions for
-                    businesses and other establishments
-                    requiring reliable access.
+                    Internet connectivity solutions for businesses
+                    and establishments requiring reliable access.
                 </p>
             </div>
 
         </div>
-
     </section>
 
-    <!-- ABOUT SECTION -->
+    <!-- INTERNET PACKAGES -->
+
+    <section class="packages-section" id="packages">
+        <div class="section-title">
+            <h2>Our Wi-Fi Packages</h2>
+            <p>Choose a package that suits your internet needs.</p>
+        </div>
+
+        <div class="packages">
+
+            <div class="package-card">
+                <h3>Quick Access</h3>
+                <div class="package-price">KES 10</div>
+                <div class="package-duration">3 Hours</div>
+                <p>Convenient short-term internet access.</p>
+                <a href="CUSTOMER_PORTAL_URL" class="button">Get Connected</a>
+            </div>
+
+            <div class="package-card featured">
+                <h3>Extended Access</h3>
+                <div class="package-price">KES 20</div>
+                <div class="package-duration">10 Hours</div>
+                <p>More time to browse, stream and work.</p>
+                <a href="CUSTOMER_PORTAL_URL" class="button">Get Connected</a>
+            </div>
+
+            <div class="package-card">
+                <h3>Daily Access</h3>
+                <div class="package-price">KES 50</div>
+                <div class="package-duration">24 Hours</div>
+                <p>Stay connected throughout the day.</p>
+                <a href="CUSTOMER_PORTAL_URL" class="button">Get Connected</a>
+            </div>
+
+        </div>
+
+        <p class="package-note">
+            Package availability and terms are subject to the
+            applicable NETLINK service area.
+        </p>
+    </section>
+
+    <!-- CUSTOMER PORTAL -->
+
+    <section class="portal-section">
+        <h2>Already a NETLINK Customer?</h2>
+        <p>
+            Access your customer account, purchase internet packages,
+            make payments and manage your subscriptions through
+            the NETLINK customer portal.
+        </p>
+
+        <div class="portal-actions">
+            <a href="CUSTOMER_PORTAL_URL" class="button button-white">
+                Open Customer Portal &#8594;
+            </a>
+
+            <a href="https://wa.me/254106054661"
+               class="button">
+                Contact Support
+            </a>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
 
     <section class="about-section" id="about">
-
         <div class="about-content">
-
             <h2>About NETLINK Internet Services</h2>
 
             <p>
-                NETLINK Internet Services is an internet
-                connectivity initiative focused on providing
-                accessible internet solutions through managed
-                Wi-Fi hotspot services and home internet
-                subscriptions.
+                NETLINK Internet Services is an internet connectivity
+                initiative focused on providing accessible internet
+                solutions through managed Wi-Fi hotspot services
+                and home internet subscriptions.
             </p>
 
             <p>
@@ -819,80 +984,154 @@
                 through flexible packages, digital payments
                 and efficient customer service.
             </p>
-
         </div>
 
         <div class="about-illustration">
-
             <div class="tower">&#128225;</div>
-
             <p>Connecting People Through Technology</p>
-
         </div>
-
     </section>
 
-    <!-- CONTACT SECTION -->
+    <!-- COVERAGE -->
+
+    <section class="coverage-section" id="coverage">
+        <h2>NETLINK Coverage Areas</h2>
+
+        <p>
+            Looking for reliable internet connectivity?
+            Contact our team to find out whether NETLINK
+            hotspot or home internet services are available
+            in your location.
+        </p>
+
+        <a href="https://wa.me/254106054661?text=Hello%20NETLINK%2C%20I%20would%20like%20to%20check%20internet%20coverage%20in%20my%20area."
+           class="button">
+            Check Availability
+        </a>
+    </section>
+
+    <!-- FAQ -->
+
+    <section class="faq-section" id="faq">
+        <div class="section-title">
+            <h2>Frequently Asked Questions</h2>
+            <p>Some helpful information about NETLINK services.</p>
+        </div>
+
+        <div class="faq-list">
+
+            <details>
+                <summary>How can I connect to NETLINK Wi-Fi?</summary>
+                <p>
+                    Connect to the available NETLINK Wi-Fi hotspot,
+                    open the customer portal and follow the
+                    instructions to purchase an internet package.
+                </p>
+            </details>
+
+            <details>
+                <summary>How do I pay for a Wi-Fi package?</summary>
+                <p>
+                    Follow the payment instructions displayed
+                    in the customer portal. Available payment
+                    methods will be shown during checkout.
+                </p>
+            </details>
+
+            <details>
+                <summary>How do I receive my internet access?</summary>
+                <p>
+                    After a successful payment, follow the
+                    instructions in the customer portal to
+                    access your purchased internet package.
+                </p>
+            </details>
+
+            <details>
+                <summary>Can I renew my home internet subscription?</summary>
+                <p>
+                    Yes. Existing home internet customers can
+                    use the customer portal to access their
+                    account and available renewal options.
+                </p>
+            </details>
+
+            <details>
+                <summary>How can I check whether NETLINK covers my area?</summary>
+                <p>
+                    Contact NETLINK through WhatsApp or email
+                    and provide your location so the team can
+                    confirm service availability.
+                </p>
+            </details>
+
+            <details>
+                <summary>How can I contact NETLINK support?</summary>
+                <p>
+                    You can reach NETLINK through the phone
+                    number, email address or WhatsApp contact
+                    displayed on this website.
+                </p>
+            </details>
+
+        </div>
+    </section>
+
+    <!-- CONTACT -->
 
     <section class="contact-section" id="contact">
 
         <div class="contact-heading">
-
             <h2>Contact NETLINK</h2>
-
             <p>Interested in our internet services?</p>
-
         </div>
 
         <div class="contact-item">
-
             <span class="contact-icon">&#128205;</span>
-
             <span>Kenya</span>
-
         </div>
 
         <div class="contact-item">
-
             <span class="contact-icon">&#9993;</span>
-
             <span>
                 Email:<br>
-
                 <a href="mailto:nattyvybz@outlook.com">
                     nattyvybz@outlook.com
                 </a>
             </span>
-
         </div>
 
         <div class="contact-item">
-
             <span class="contact-icon">&#128222;</span>
-
             <span>
                 Phone:<br>
-
                 <a href="tel:+254106054661">
                     +254106054661
                 </a>
             </span>
-
         </div>
 
     </section>
 
 </main>
 
+<!-- WHATSAPP FLOATING CONTACT -->
+
+<a class="whatsapp-float"
+   href="https://wa.me/254106054661?text=Hello%20NETLINK%20Internet%20Services%2C%20I%20would%20like%20to%20make%20an%20inquiry."
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Chat with NETLINK on WhatsApp">
+    &#128172;
+</a>
+
 <!-- FOOTER -->
 
 <footer>
-
     <div class="footer-content">
-
         <p>
-            &copy; 2026 NETLINK Internet Services.
-            All rights reserved.
+            &copy; <span id="year">2026</span>
+            NETLINK Internet Services. All rights reserved.
         </p>
 
         <span class="footer-divider">|</span>
@@ -900,10 +1139,23 @@
         <p class="footer-slogan">
             Connecting People. Empowering Communities.
         </p>
-
     </div>
 
+    <!-- ADD YOUR REAL SOCIAL MEDIA LINKS HERE -->
+
+    <div class="social-links">
+        <!-- Example:
+        <a href="YOUR_FACEBOOK_URL">Facebook</a>
+        <a href="YOUR_INSTAGRAM_URL">Instagram</a>
+        <a href="YOUR_TIKTOK_URL">TikTok</a>
+        -->
+    </div>
 </footer>
+
+<script>
+    document.getElementById("year").textContent =
+        new Date().getFullYear();
+</script>
 
 </body>
 </html>
