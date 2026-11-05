@@ -1,1 +1,290 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="NETLINK Internet Services provides Wi-Fi hotspot and home internet connectivity solutions in Kenya.">
+    <meta name="theme-color" content="#071b38">
+    <title>NETLINK Internet Services | Reliable Internet</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f8fc;
+            color: #1f2937;
+            line-height: 1.7;
+        }
+
+        header {
+            background: #071b38;
+            color: white;
+            padding: 18px 7%;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .brand {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
+
+        .brand span {
+            color: #1683ff;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 14px;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #071b38, #084d91);
+            color: white;
+            padding: 100px 7%;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #d9e9ff;
+            font-size: 17px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #0878f9;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 7px;
+            text-decoration: none;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        section {
+            padding: 65px 7%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .section-title h2 {
+            font-size: 30px;
+            color: #071b38;
+        }
+
+        .section-title p {
+            color: #64748b;
+            margin-top: 8px;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 22px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,.05);
+        }
+
+        .service-card .icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #084d91;
+            margin-bottom: 10px;
+        }
+
+        .about {
+            background: white;
+            text-align: center;
+        }
+
+        .about p {
+            max-width: 800px;
+            margin: 15px auto;
+            color: #64748b;
+        }
+
+        .contact {
+            background: #eaf2fc;
+            text-align: center;
+        }
+
+        footer {
+            background: #071b38;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 25px;
+            font-size: 13px;
+        }
+
+        @media(max-width: 600px) {
+            nav {
+                justify-content: center;
+            }
+
+            nav a {
+                margin: 0 7px;
+            }
+
+            .hero {
+                padding: 75px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a class="brand" href="#">NET<span>LINK</span></a>
+
+        <div>
+            <a href="#home">Home</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+    <section class="hero" id="home">
+        <h1>Reliable Internet. Connected Living.</h1>
+
+        <p>
+            Welcome to NETLINK Internet Services.
+            We provide internet connectivity solutions
+            for individuals, homes and businesses in Kenya.
+        </p>
+
+        <a href="#services" class="button">
+            Explore Our Services
+        </a>
+    </section>
+
+    <section id="services">
+        <div class="section-title">
+            <h2>Our Internet Services</h2>
+            <p>Connectivity solutions designed for different needs.</p>
+        </div>
+
+        <div class="services">
+
+            <div class="service-card">
+                <div class="icon">📶</div>
+                <h3>Wi-Fi Hotspot</h3>
+                <p>
+                    Convenient prepaid Wi-Fi access with
+                    flexible internet packages and
+                    automated payment options.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🏠</div>
+                <h3>Home Internet</h3>
+                <p>
+                    Home internet subscription solutions
+                    with customer accounts, package
+                    management and subscription renewals.
+                </p>
+            </div>
+
+            <div class="service-card">
+                <div class="icon">🏢</div>
+                <h3>Business Connectivity</h3>
+                <p>
+                    Internet connectivity solutions for
+                    businesses and other establishments
+                    requiring reliable access.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>About NETLINK Internet Services</h2>
+        </div>
+
+        <p>
+            NETLINK Internet Services is an internet
+            connectivity initiative focused on providing
+            accessible internet solutions through managed
+            Wi-Fi hotspot services and home internet
+            subscriptions.
+        </p>
+
+        <p>
+            Our goal is to make internet access convenient
+            through flexible packages, digital payments
+            and efficient customer service.
+        </p>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="section-title">
+            <h2>Contact NETLINK</h2>
+            <p>Interested in our internet services?</p>
+        </div>
+
+        <p>
+            Kenya
+        </p>
+
+        <p>
+            Email: YOUR_BUSINESS_EMAIL
+        </p>
+
+        <p>
+            Phone: YOUR_BUSINESS_PHONE
+        </p>
+    </section>
+</main>
+
+<footer>
+    <p>
+        &copy; 2026 NETLINK Internet Services.
+        All rights reserved.
+    </p>
+    <p>Connecting People. Empowering Communities.</p>
+</footer>
+
+</body>
+</html>
+
