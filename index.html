@@ -18,174 +18,458 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             background: #f5f8fc;
-            color: #1f2937;
-            line-height: 1.7;
+            color: #071b38;
+            line-height: 1.6;
         }
+
+        /* HEADER */
 
         header {
             background: #071b38;
             color: white;
-            padding: 12px 7%;
+            padding: 10px 3%;
         }
 
         nav {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 15px;
+            gap: 20px;
+            min-height: 45px;
         }
 
         .brand {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-        }
-
-        .brand img {
-           display: block;
-           width: 260px;
-           height: 90px;
-           object-fit: contain;
-       }
-
-        nav a {
+            font-size: 34px;
+            font-weight: bold;
             color: white;
             text-decoration: none;
-            margin-left: 20px;
-            font-size: 14px;
+            letter-spacing: -1.5px;
         }
 
-        nav a:hover {
+        .brand span {
             color: #1683ff;
         }
 
-        .hero {
-            background: linear-gradient(120deg, #071b38, #084d91);
+        nav .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 35px;
+        }
+
+        nav .nav-links a {
             color: white;
-            padding: 100px 7%;
+            text-decoration: none;
+            font-size: 15px;
+            transition: color .2s ease;
+        }
+
+        nav .nav-links a:hover {
+            color: #1683ff;
+        }
+
+        /* HERO */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            background:
+                radial-gradient(ellipse at 50% 5%, rgba(255,255,255,.35), transparent 32%),
+                linear-gradient(120deg, #073b91, #0878ed 70%, #0754bd);
+            color: white;
             text-align: center;
+            padding: 25px 5% 30px;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            width: 75%;
+            height: 220px;
+            border-radius: 50%;
+            border: 45px solid rgba(0, 32, 105, .22);
+            transform: rotate(-12deg);
+            pointer-events: none;
+        }
+
+        .hero::before {
+            top: 70px;
+            left: -30%;
+        }
+
+        .hero::after {
+            bottom: -175px;
+            right: -30%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-logo {
+            width: min(340px, 80%);
+            height: 125px;
+            object-fit: contain;
+            display: block;
+            margin: 0 auto 8px;
         }
 
         .hero h1 {
-            font-size: clamp(32px, 5vw, 52px);
-            margin-bottom: 20px;
+            font-size: clamp(30px, 4.5vw, 46px);
+            line-height: 1.2;
+            margin-bottom: 12px;
+            font-weight: bold;
         }
 
         .hero p {
-            max-width: 650px;
-            margin: auto;
-            color: #d9e9ff;
-            font-size: 17px;
+            color: #e5f1ff;
+            font-size: clamp(15px, 2vw, 19px);
+            max-width: 1050px;
+            margin: 0 auto;
         }
 
         .button {
             display: inline-block;
             background: #0878f9;
             color: white;
-            padding: 13px 25px;
-            border-radius: 7px;
+            padding: 14px 32px;
+            border-radius: 35px;
             text-decoration: none;
-            margin-top: 25px;
+            margin-top: 23px;
             font-weight: bold;
+            font-size: 16px;
+            transition: background .2s ease, transform .2s ease;
         }
 
         .button:hover {
             background: #0064d9;
+            transform: translateY(-2px);
         }
 
-        section {
-            padding: 65px 7%;
+        /* SERVICES */
+
+        .services-section {
+            padding: 15px 2.5% 26px;
+            background: #ffffff;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 35px;
+            margin-bottom: 8px;
         }
 
         .section-title h2 {
-            font-size: 30px;
+            font-size: 32px;
             color: #071b38;
         }
 
         .section-title p {
-            color: #64748b;
-            margin-top: 8px;
+            color: #475d80;
+            font-size: 18px;
         }
 
         .services {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 22px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 5px;
         }
 
         .service-card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 18px rgba(0,0,0,.05);
+            background: #ffffff;
+            padding: 20px 25px;
+            border-radius: 15px;
+            border: 1px solid #e1ebff;
+            box-shadow: 0 5px 20px rgba(0, 75, 180, .07);
+            text-align: center;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 25px rgba(0, 75, 180, .12);
         }
 
         .service-card .icon {
-            font-size: 35px;
-            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 78px;
+            height: 78px;
+            margin: 0 auto 8px;
+            background: linear-gradient(135deg, #0878f9, #0060d8);
+            color: white;
+            border-radius: 50%;
+            font-size: 36px;
         }
 
         .service-card h3 {
-            color: #084d91;
-            margin-bottom: 10px;
+            color: #071b55;
+            font-size: 23px;
+            margin-bottom: 5px;
         }
 
-        .about {
-            background: white;
+        .service-card p {
+            color: #142b55;
+            font-size: 16px;
+            line-height: 1.5;
+            max-width: 360px;
+            margin: auto;
+        }
+
+        /* ABOUT */
+
+        .about-section {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin: 0 2.5% 12px;
+            padding: 22px 30px;
+            background: linear-gradient(110deg, #e0edff, #eaf3ff);
+            border-radius: 15px;
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            color: #071b55;
+            font-size: 27px;
+            margin-bottom: 5px;
+        }
+
+        .about-content p {
+            color: #102957;
+            font-size: 15px;
+            line-height: 1.5;
+        }
+
+        .about-illustration {
+            width: 28%;
+            min-width: 180px;
             text-align: center;
+            border-left: 1px solid #b5ceef;
+            padding: 10px;
         }
 
-        .about p {
-            max-width: 800px;
-            margin: 15px auto;
-            color: #64748b;
+        .about-illustration .tower {
+            font-size: 75px;
+            line-height: 1.2;
         }
 
-        .contact {
-            background: #eaf2fc;
-            text-align: center;
+        .about-illustration p {
+            color: #0756bb;
+            font-size: 14px;
+            font-weight: bold;
         }
+
+        /* CONTACT */
+
+        .contact-section {
+            display: grid;
+            grid-template-columns: 1.5fr .65fr 1.1fr 1.1fr;
+            align-items: center;
+            gap: 15px;
+            margin: 0 2.5% 15px;
+            padding: 15px 30px;
+            background: linear-gradient(110deg, #e0edff, #eaf3ff);
+            border-radius: 15px;
+        }
+
+        .contact-heading h2 {
+            color: #071b55;
+            font-size: 25px;
+        }
+
+        .contact-heading p {
+            color: #102957;
+            font-size: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 5px 15px;
+            border-left: 1px solid #a9c7ed;
+            color: #071b55;
+            font-size: 15px;
+        }
+
+        .contact-icon {
+            color: #0878f9;
+            font-size: 25px;
+        }
+
+        .contact-item a {
+            color: #071b55;
+            overflow-wrap: anywhere;
+        }
+
+        /* FOOTER */
 
         footer {
             background: #071b38;
-            color: #cbd5e1;
+            color: #dbeafe;
             text-align: center;
-            padding: 25px;
+            padding: 13px 15px;
             font-size: 13px;
         }
 
-        @media(max-width: 600px) {
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .footer-divider {
+            color: #8bb8f3;
+        }
+
+        .footer-slogan {
+            font-style: italic;
+        }
+
+        /* TABLET AND MOBILE */
+
+        @media (max-width: 850px) {
+
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-section {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-heading {
+                grid-column: span 2;
+            }
+
+            .about-illustration {
+                width: 25%;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 12px 5%;
+            }
+
             nav {
-                justify-content: center;
+                flex-direction: column;
+                gap: 10px;
             }
 
-            .brand img {
-                width: 210px;
-                height: 75px;
+            .brand {
+                font-size: 30px;
             }
 
-            nav div {
-                display: flex;
+            nav .nav-links {
                 justify-content: center;
                 flex-wrap: wrap;
-                gap: 12px;
+                gap: 15px;
             }
 
-            nav a {
-                margin: 0 4px;
+            nav .nav-links a {
+                font-size: 13px;
             }
 
             .hero {
-                padding: 75px 6%;
+                padding: 25px 6% 35px;
+            }
+
+            .hero-logo {
+                width: min(280px, 90%);
+                height: 105px;
+            }
+
+            .hero h1 {
+                font-size: 31px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .services-section {
+                padding: 30px 5%;
+            }
+
+            .section-title h2 {
+                font-size: 27px;
+            }
+
+            .section-title p {
+                font-size: 15px;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+                gap: 15px;
+                margin-top: 20px;
+            }
+
+            .service-card {
+                padding: 25px 20px;
+            }
+
+            .about-section {
+                flex-direction: column;
+                text-align: center;
+                margin: 0 5% 15px;
+                padding: 25px 20px;
+            }
+
+            .about-content h2 {
+                font-size: 24px;
+            }
+
+            .about-illustration {
+                width: 100%;
+                border-left: none;
+                border-top: 1px solid #b5ceef;
+                padding-top: 15px;
+            }
+
+            .contact-section {
+                grid-template-columns: 1fr;
+                margin: 0 5% 15px;
+                padding: 22px;
+                gap: 15px;
+            }
+
+            .contact-heading {
+                grid-column: auto;
+                text-align: center;
+            }
+
+            .contact-item {
+                border-left: none;
+                border-top: 1px solid #b5ceef;
+                padding: 12px 5px 0;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .footer-divider {
+                display: none;
             }
         }
     </style>
@@ -196,11 +480,10 @@
 <header>
     <nav>
         <a class="brand" href="#home">
-            <img src="assets/img/logo.png"
-                 alt="NETLINK Internet Services Logo">
+            NET<span>LINK</span>
         </a>
 
-        <div>
+        <div class="nav-links">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
             <a href="#about">About</a>
@@ -211,21 +494,39 @@
 
 <main>
 
+    <!-- HERO SECTION -->
+
     <section class="hero" id="home">
-        <h1>Reliable Internet. Connected Living.</h1>
+        <div class="hero-content">
 
-        <p>
-            Welcome to NETLINK Internet Services.
-            We provide internet connectivity solutions
-            for individuals, homes and businesses in Kenya.
-        </p>
+            <img
+                src="assets/img/logo.png"
+                alt="NETLINK Internet Services Logo"
+                class="hero-logo"
+            >
 
-        <a href="#services" class="button">
-            Explore Our Services
-        </a>
+            <h1>Reliable Internet. Connected Living.</h1>
+
+            <p>
+                Welcome to NETLINK Internet Services.
+            </p>
+
+            <p>
+                We provide internet connectivity solutions for
+                individuals, homes and businesses in Kenya.
+            </p>
+
+            <a href="#services" class="button">
+                Explore Our Services &#8594;
+            </a>
+
+        </div>
     </section>
 
-    <section id="services">
+    <!-- SERVICES SECTION -->
+
+    <section class="services-section" id="services">
+
         <div class="section-title">
             <h2>Our Internet Services</h2>
             <p>Connectivity solutions designed for different needs.</p>
@@ -234,8 +535,10 @@
         <div class="services">
 
             <div class="service-card">
-                <div class="icon">📶</div>
+                <div class="icon">&#128246;</div>
+
                 <h3>Wi-Fi Hotspot</h3>
+
                 <p>
                     Convenient prepaid Wi-Fi access with
                     flexible internet packages and
@@ -244,8 +547,10 @@
             </div>
 
             <div class="service-card">
-                <div class="icon">🏠</div>
+                <div class="icon">&#127968;</div>
+
                 <h3>Home Internet</h3>
+
                 <p>
                     Home internet subscription solutions
                     with customer accounts, package
@@ -254,8 +559,10 @@
             </div>
 
             <div class="service-card">
-                <div class="icon">🏢</div>
+                <div class="icon">&#127970;</div>
+
                 <h3>Business Connectivity</h3>
+
                 <p>
                     Internet connectivity solutions for
                     businesses and other establishments
@@ -266,58 +573,94 @@
         </div>
     </section>
 
-    <section class="about" id="about">
-        <div class="section-title">
+    <!-- ABOUT SECTION -->
+
+    <section class="about-section" id="about">
+
+        <div class="about-content">
+
             <h2>About NETLINK Internet Services</h2>
+
+            <p>
+                NETLINK Internet Services is an internet
+                connectivity initiative focused on providing
+                accessible internet solutions through managed
+                Wi-Fi hotspot services and home internet
+                subscriptions.
+            </p>
+
+            <p>
+                Our goal is to make internet access convenient
+                through flexible packages, digital payments
+                and efficient customer service.
+            </p>
+
         </div>
 
-        <p>
-            NETLINK Internet Services is an internet
-            connectivity initiative focused on providing
-            accessible internet solutions through managed
-            Wi-Fi hotspot services and home internet
-            subscriptions.
-        </p>
+        <div class="about-illustration">
+            <div class="tower">&#128225;</div>
+            <p>Connecting People Through Technology</p>
+        </div>
 
-        <p>
-            Our goal is to make internet access convenient
-            through flexible packages, digital payments
-            and efficient customer service.
-        </p>
     </section>
 
-    <section class="contact" id="contact">
-        <div class="section-title">
+    <!-- CONTACT SECTION -->
+
+    <section class="contact-section" id="contact">
+
+        <div class="contact-heading">
             <h2>Contact NETLINK</h2>
             <p>Interested in our internet services?</p>
         </div>
 
-        <p>Kenya</p>
+        <div class="contact-item">
+            <span class="contact-icon">&#128205;</span>
+            <span>Kenya</span>
+        </div>
 
-        <p>
-            Email:
-            <a href="mailto:nattyvybz@outlook.com">
-                nattyvybz@outlook.com
-            </a>
-        </p>
+        <div class="contact-item">
+            <span class="contact-icon">&#9993;</span>
+            <span>
+                Email:<br>
+                <a href="mailto:nattyvybz@outlook.com">
+                    nattyvybz@outlook.com
+                </a>
+            </span>
+        </div>
 
-        <p>
-            Phone:
-            <a href="tel:+254106054661">
-                +254106054661
-            </a>
-        </p>
+        <div class="contact-item">
+            <span class="contact-icon">&#128222;</span>
+            <span>
+                Phone:<br>
+                <a href="tel:+254106054661">
+                    +254106054661
+                </a>
+            </span>
+        </div>
+
     </section>
 
 </main>
 
-<footer>
-    <p>
-        &copy; 2026 NETLINK Internet Services.
-        All rights reserved.
-    </p>
+<!-- FOOTER -->
 
-    <p>Connecting People. Empowering Communities.</p>
+<footer>
+
+    <div class="footer-content">
+
+        <p>
+            &copy; 2026 NETLINK Internet Services.
+            All rights reserved.
+        </p>
+
+        <span class="footer-divider">|</span>
+
+        <p class="footer-slogan">
+            Connecting People. Empowering Communities.
+        </p>
+
+    </div>
+
 </footer>
 
 </body>
