@@ -1,11 +1,14 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <meta name="description" content="NETLINK Internet Services provides Wi-Fi hotspot and home internet connectivity solutions in Kenya.">
     <meta name="theme-color" content="#071b38">
+
+    <link rel="icon" type="image/png" href="assets/img/logo.png">
+
     <title>NETLINK Internet Services | Reliable Internet</title>
 
     <style>
@@ -25,7 +28,7 @@
         header {
             background: #071b38;
             color: white;
-            padding: 18px 7%;
+            padding: 12px 7%;
         }
 
         nav {
@@ -37,14 +40,16 @@
         }
 
         .brand {
-            font-size: 24px;
-            font-weight: bold;
-            color: white;
+            display: flex;
+            align-items: center;
             text-decoration: none;
         }
 
-        .brand span {
-            color: #1683ff;
+        .brand img {
+            display: block;
+            width: 175px;
+            max-height: 65px;
+            object-fit: contain;
         }
 
         nav a {
@@ -52,6 +57,10 @@
             text-decoration: none;
             margin-left: 20px;
             font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #1683ff;
         }
 
         .hero {
@@ -82,6 +91,10 @@
             text-decoration: none;
             margin-top: 25px;
             font-weight: bold;
+        }
+
+        .button:hover {
+            background: #0064d9;
         }
 
         section {
@@ -155,8 +168,20 @@
                 justify-content: center;
             }
 
+            .brand img {
+                width: 150px;
+                max-height: 55px;
+            }
+
+            nav div {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
             nav a {
-                margin: 0 7px;
+                margin: 0 4px;
             }
 
             .hero {
@@ -170,7 +195,10 @@
 
 <header>
     <nav>
-        <a class="brand" href="#">NET<span>LINK</span></a>
+        <a class="brand" href="#home">
+            <img src="assets/img/logo.png"
+                 alt="NETLINK Internet Services Logo">
+        </a>
 
         <div>
             <a href="#home">Home</a>
@@ -182,6 +210,7 @@
 </header>
 
 <main>
+
     <section class="hero" id="home">
         <h1>Reliable Internet. Connected Living.</h1>
 
@@ -263,18 +292,23 @@
             <p>Interested in our internet services?</p>
         </div>
 
+        <p>Kenya</p>
+
         <p>
-            Kenya
+            Email:
+            <a href="mailto:nattyvybz@outlook.com">
+                nattyvybz@outlook.com
+            </a>
         </p>
 
         <p>
-            Email: YOUR_BUSINESS_EMAIL
-        </p>
-
-        <p>
-            Phone: YOUR_BUSINESS_PHONE
+            Phone:
+            <a href="tel:+254106054661">
+                +254106054661
+            </a>
         </p>
     </section>
+
 </main>
 
 <footer>
@@ -282,9 +316,9 @@
         &copy; 2026 NETLINK Internet Services.
         All rights reserved.
     </p>
+
     <p>Connecting People. Empowering Communities.</p>
 </footer>
 
 </body>
 </html>
-
