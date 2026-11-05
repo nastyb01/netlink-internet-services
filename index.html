@@ -748,7 +748,7 @@
                 Customer Portal
             </a>
 
-            <a class="nav-portal"
+            <a class="nav-portal apply-internet-button"
                href="https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php">
                 Apply for Internet
             </a>
@@ -835,7 +835,7 @@
             </a>
 
             <a href="https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php"
-               class="button button-white">
+               class="button button-white apply-internet-button">
                 Apply for Internet
             </a>
 
@@ -934,7 +934,7 @@
 
             <a
                 href="https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php"
-                class="button button-white">
+                class="button button-white apply-internet-button">
                 Apply for Internet &#8594;
             </a>
 
@@ -1170,14 +1170,19 @@
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 
-    // Update copyright year
+    /*
+     * COPYRIGHT YEAR
+     */
     const yearElement = document.getElementById('year');
 
     if (yearElement) {
         yearElement.textContent = new Date().getFullYear();
     }
 
-    // NETLINK application and package API URLs
+
+    /*
+     * NETLINK URLS
+     */
     const NETLINK_APPLICATION_URL =
         'https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php';
 
@@ -1186,14 +1191,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     /*
-     * SET THE APPLICATION DESTINATION
+     * EXPLICITLY SET APPLICATION BUTTON DESTINATIONS
      *
-     * Only links explicitly marked as application buttons
-     * are affected. WhatsApp links remain unchanged.
+     * This selector affects only the three static application
+     * buttons. It does not change WhatsApp or other links.
      */
     document.querySelectorAll('.apply-internet-button').forEach(function (link) {
         link.href = NETLINK_APPLICATION_URL;
-        link.removeAttribute('target');
     });
 
 
@@ -1356,4 +1360,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 </script>
+
+</body>
 </html>
