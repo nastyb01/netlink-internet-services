@@ -41,8 +41,6 @@
             transition: .2s ease;
         }
 
-        /* HEADER */
-
         header {
             background: #071b38;
             color: white;
@@ -101,8 +99,6 @@
             background: #0064d9;
             color: white !important;
         }
-
-        /* HERO */
 
         .hero {
             position: relative;
@@ -166,8 +162,6 @@
             border: 40px solid rgba(0,32,105,.19);
             transform: rotate(-10deg);
         }
-
-        /* NETLINK SVG LOGO */
 
         .hero-logo {
             position: relative;
@@ -244,8 +238,6 @@
             color: #071b38;
         }
 
-        /* GENERAL SECTION HEADINGS */
-
         .section-title {
             text-align: center;
             margin-bottom: 15px;
@@ -260,8 +252,6 @@
             color: #475d80;
             font-size: 17px;
         }
-
-        /* SERVICES */
 
         .services-section {
             padding: 30px 2.5%;
@@ -312,8 +302,6 @@
             color: #142b55;
             font-size: 15px;
         }
-
-        /* PACKAGES */
 
         .packages-section {
             padding: 40px 4%;
@@ -375,8 +363,6 @@
             color: #536783;
         }
 
-        /* CUSTOMER PORTAL AND APPLICATION */
-
         .portal-section {
             margin: 0;
             padding: 40px 5%;
@@ -402,8 +388,6 @@
             gap: 12px;
             margin-top: 15px;
         }
-
-        /* ABOUT */
 
         .about-section {
             display: flex;
@@ -451,8 +435,6 @@
             font-weight: bold;
         }
 
-        /* COVERAGE */
-
         .coverage-section {
             margin: 15px 2.5%;
             padding: 30px;
@@ -473,8 +455,6 @@
             max-width: 750px;
             margin: 8px auto;
         }
-
-        /* FAQ */
 
         .faq-section {
             padding: 40px 5%;
@@ -504,8 +484,6 @@
             color: #475d80;
             padding-top: 10px;
         }
-
-        /* CONTACT */
 
         .contact-section {
             display: grid;
@@ -548,8 +526,6 @@
             overflow-wrap: anywhere;
         }
 
-        /* WHATSAPP */
-
         .whatsapp-float {
             position: fixed;
             right: 20px;
@@ -573,8 +549,6 @@
             transform: translateY(-3px);
         }
 
-        /* SOCIAL LINKS */
-
         .social-links {
             display: flex;
             justify-content: center;
@@ -591,8 +565,6 @@
         .social-links a:hover {
             color: #1683ff;
         }
-
-        /* FOOTER */
 
         footer {
             background: #071b38;
@@ -618,8 +590,6 @@
             font-style: italic;
         }
 
-        /* TABLET */
-
         @media(max-width:850px) {
             .services,
             .packages {
@@ -638,8 +608,6 @@
                 width: 25%;
             }
         }
-
-        /* MOBILE */
 
         @media(max-width:600px) {
             header {
@@ -774,7 +742,12 @@
             <a href="#about">About</a>
             <a href="#coverage">Coverage</a>
             <a href="#contact">Contact</a>
-            <a class="nav-portal" href="portal.netlink.local/customer.php">Customer Portal</a>
+
+            <a class="nav-portal"
+               href="https://posts-ensemble-devon-advertisers.trycloudflare.com/customer.php">
+                Customer Portal
+            </a>
+
             <a class="nav-portal"
                href="https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php">
                 Apply for Internet
@@ -932,12 +905,8 @@
                     and pricing in your area.
                 </p>
 
-                <a
-                    href="https://wa.me/254106054661?text=Hello%20NETLINK%2C%20please%20share%20your%20available%20home%20internet%20packages."
-                    class="button"
-                    target="_blank"
-                    rel="noopener noreferrer">
-                    Request Packages
+                <a href="#internet-packages" class="button">
+                    View Packages
                 </a>
             </div>
 
@@ -958,8 +927,7 @@
 
         <p>
             Interested in getting home or business internet?
-            Contact our team to discuss availability,
-            packages and installation.
+            Complete our online application form to get started.
         </p>
 
         <div class="portal-actions">
@@ -980,7 +948,7 @@
 
     <!-- CUSTOMER PORTAL -->
 
-    <section class="portal-section">
+    <section class="portal-section" id="customer-portal">
         <h2>Already a NETLINK Customer?</h2>
 
         <p>
@@ -991,7 +959,9 @@
 
         <div class="portal-actions">
 
-            <a href="CUSTOMER_PORTAL_URL" class="button button-white">
+            <a
+                href="https://posts-ensemble-devon-advertisers.trycloudflare.com/customer.php"
+                class="button button-white">
                 Open Customer Portal &#8594;
             </a>
 
@@ -1046,7 +1016,9 @@
 
         <a
             href="https://wa.me/254106054661?text=Hello%20NETLINK%2C%20I%20would%20like%20to%20check%20internet%20coverage%20in%20my%20area."
-            class="button">
+            class="button"
+            target="_blank"
+            rel="noopener noreferrer">
             Check Availability
         </a>
 
@@ -1067,8 +1039,8 @@
                 <summary>How can I apply for NETLINK home internet?</summary>
                 <p>
                     Use the Apply for Internet option on our website
-                    or contact our team through WhatsApp. We will
-                    guide you through the application process.
+                    to complete the online application form. You can
+                    also contact our team through WhatsApp for assistance.
                 </p>
             </details>
 
@@ -1202,15 +1174,22 @@
 
 
     /*
-     * NETLINK PUBLIC PACKAGE AND APPLICATION INTEGRATION
+     * NETLINK PUBLIC PAGE URLS
      */
 
     const NETLINK_PACKAGE_API =
         'https://posts-ensemble-devon-advertisers.trycloudflare.com/api/packages.php';
 
     const NETLINK_APPLICATION_URL =
-        NETLINK_PACKAGE_API.replace('/api/packages.php', '/apply.php');
+        'https://posts-ensemble-devon-advertisers.trycloudflare.com/apply.php';
 
+    const NETLINK_CUSTOMER_PORTAL_URL =
+        'https://posts-ensemble-devon-advertisers.trycloudflare.com/customer.php';
+
+
+    /*
+     * LOAD INTERNET PACKAGES
+     */
 
     async function loadInternetPackages() {
 
@@ -1257,8 +1236,17 @@
                 message.textContent =
                     'Please contact NETLINK for available subscriptions.';
 
+                const contactLink = document.createElement('a');
+                contactLink.href =
+                    'https://wa.me/254106054661';
+                contactLink.className = 'button';
+                contactLink.target = '_blank';
+                contactLink.rel = 'noopener noreferrer';
+                contactLink.textContent = 'Contact NETLINK';
+
                 card.appendChild(heading);
                 card.appendChild(message);
+                card.appendChild(contactLink);
 
                 container.appendChild(card);
 
@@ -1367,10 +1355,22 @@
     }
 
 
-    document.addEventListener(
-        'DOMContentLoaded',
-        loadInternetPackages
-    );
+    /*
+     * INITIALIZE WEBSITE
+     */
+
+    document.addEventListener('DOMContentLoaded', function() {
+
+        loadInternetPackages();
+
+        // Keep customer portal links consistent.
+        document.querySelectorAll(
+            'a[href="https://posts-ensemble-devon-advertisers.trycloudflare.com/customer.php"]'
+        ).forEach(function(link) {
+            link.href = NETLINK_CUSTOMER_PORTAL_URL;
+        });
+
+    });
 
 </script>
 
