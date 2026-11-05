@@ -27,7 +27,9 @@
             line-height: 1.6;
         }
 
-        /* HEADER */
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             background: #071b38;
@@ -72,39 +74,75 @@
             color: #1683ff;
         }
 
-        /* HERO */
+        /* =========================
+           HERO SECTION
+        ========================= */
 
         .hero {
             position: relative;
+            isolation: isolate;
             overflow: hidden;
+
             background:
-                radial-gradient(ellipse at 50% 5%, rgba(255,255,255,.35), transparent 32%),
-                linear-gradient(120deg, #073b91, #0878ed 70%, #0754bd);
+                radial-gradient(
+                    ellipse at 50% 5%,
+                    rgba(255,255,255,.48) 0%,
+                    rgba(160,220,255,.28) 18%,
+                    transparent 43%
+                ),
+                linear-gradient(
+                    115deg,
+                    #0646aa 0%,
+                    #087df5 52%,
+                    #0064dc 100%
+                );
+
             color: white;
             text-align: center;
-            padding: 48px 5% 42px;
+            padding: 12px 5% 16px;
         }
+
+        /* LEFT AND RIGHT DECORATIVE WAVES */
 
         .hero::before,
         .hero::after {
             content: "";
             position: absolute;
-            width: 75%;
-            height: 220px;
+            z-index: -1;
+            width: 78%;
+            height: 240px;
             border-radius: 50%;
-            border: 45px solid rgba(0, 32, 105, .22);
-            transform: rotate(-12deg);
+            border: 45px solid rgba(0, 32, 105, .25);
             pointer-events: none;
         }
 
         .hero::before {
-            top: 70px;
-            left: -30%;
+            top: 35px;
+            left: -38%;
+            transform: rotate(-13deg);
         }
 
         .hero::after {
-            bottom: -175px;
-            right: -30%;
+            bottom: -185px;
+            right: -35%;
+            transform: rotate(-17deg);
+            border-color: rgba(0, 32, 105, .25);
+        }
+
+        /* Additional lower-left wave */
+
+        .hero-content::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 65%;
+            height: 180px;
+            left: -30%;
+            bottom: -145px;
+            border-radius: 50%;
+            border: 40px solid rgba(0, 32, 105, .19);
+            transform: rotate(-10deg);
+            pointer-events: none;
         }
 
         .hero-content {
@@ -112,41 +150,67 @@
             z-index: 1;
         }
 
-        /* CSS-BASED NETLINK BRANDING */
+        /* =========================
+           CUSTOM NETLINK GRAPHIC LOGO
+        ========================= */
 
-        .hero-brand {
-            display: inline-block;
-            font-size: clamp(65px, 10vw, 110px);
-            font-weight: 900;
-            letter-spacing: -7px;
-            line-height: 1.1;
-            color: #ffffff;
-            text-shadow: 0 5px 15px rgba(0, 25, 90, .25);
-            margin-bottom: 8px;
+        .hero-logo {
+            position: relative;
+            width: 390px;
+            max-width: 95%;
+            height: 135px;
+            margin: 0 auto 3px;
+            isolation: isolate;
         }
 
-        .hero-brand span {
-            color: #071b38;
+        /* Illuminated background behind the logo */
+
+        .hero-logo::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+
+            width: 125%;
+            height: 150%;
+
+            top: -22%;
+            left: -12.5%;
+
+            background: radial-gradient(
+                ellipse,
+                rgba(255,255,255,.95) 0%,
+                rgba(235,248,255,.75) 23%,
+                rgba(170,222,255,.38) 43%,
+                rgba(80,165,255,.10) 65%,
+                transparent 78%
+            );
+
+            filter: blur(15px);
         }
 
-        .hero-tagline {
-            font-size: 13px;
-            font-weight: bold;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: #dcecff;
-            margin-bottom: 25px;
+        /* Logo SVG */
+
+        .hero-logo svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
         }
+
+        /* =========================
+           HERO TEXT
+        ========================= */
 
         .hero h1 {
             font-size: clamp(30px, 4.5vw, 46px);
             line-height: 1.2;
-            margin-bottom: 12px;
+            margin-bottom: 5px;
             font-weight: bold;
+            text-shadow: 0 2px 5px rgba(0, 25, 90, .12);
         }
 
         .hero p {
-            color: #e5f1ff;
+            color: #ffffff;
             font-size: clamp(15px, 2vw, 19px);
             max-width: 1050px;
             margin: 0 auto;
@@ -159,7 +223,7 @@
             padding: 14px 32px;
             border-radius: 35px;
             text-decoration: none;
-            margin-top: 23px;
+            margin-top: 15px;
             font-weight: bold;
             font-size: 16px;
             transition: background .2s ease, transform .2s ease;
@@ -170,7 +234,9 @@
             transform: translateY(-2px);
         }
 
-        /* SERVICES */
+        /* =========================
+           SERVICES
+        ========================= */
 
         .services-section {
             padding: 15px 2.5% 26px;
@@ -241,7 +307,9 @@
             margin: auto;
         }
 
-        /* ABOUT */
+        /* =========================
+           ABOUT
+        ========================= */
 
         .about-section {
             display: flex;
@@ -289,7 +357,9 @@
             font-weight: bold;
         }
 
-        /* CONTACT */
+        /* =========================
+           CONTACT
+        ========================= */
 
         .contact-section {
             display: grid;
@@ -332,7 +402,9 @@
             overflow-wrap: anywhere;
         }
 
-        /* FOOTER */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             background: #071b38;
@@ -358,9 +430,12 @@
             font-style: italic;
         }
 
-        /* TABLET AND MOBILE */
+        /* =========================
+           TABLET
+        ========================= */
 
         @media (max-width: 850px) {
+
             .services {
                 grid-template-columns: repeat(2, 1fr);
             }
@@ -378,7 +453,12 @@
             }
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 600px) {
+
             header {
                 padding: 12px 5%;
             }
@@ -402,18 +482,17 @@
                 font-size: 13px;
             }
 
+            /* Mobile hero */
+
             .hero {
-                padding: 35px 6% 35px;
+                padding: 22px 6% 30px;
             }
 
-            .hero-brand {
-                font-size: 65px;
-                letter-spacing: -4px;
-            }
-
-            .hero-tagline {
-                font-size: 10px;
-                letter-spacing: 3px;
+            .hero-logo {
+                width: 340px;
+                max-width: 100%;
+                height: 118px;
+                margin-bottom: 8px;
             }
 
             .hero h1 {
@@ -423,6 +502,12 @@
             .hero p {
                 font-size: 15px;
             }
+
+            .button {
+                margin-top: 18px;
+            }
+
+            /* Mobile services */
 
             .services-section {
                 padding: 30px 5%;
@@ -446,6 +531,8 @@
                 padding: 25px 20px;
             }
 
+            /* Mobile about */
+
             .about-section {
                 flex-direction: column;
                 text-align: center;
@@ -464,6 +551,8 @@
                 padding-top: 15px;
             }
 
+            /* Mobile contact */
+
             .contact-section {
                 grid-template-columns: 1fr;
                 margin: 0 5% 15px;
@@ -481,6 +570,8 @@
                 border-top: 1px solid #b5ceef;
                 padding: 12px 5px 0;
             }
+
+            /* Mobile footer */
 
             .footer-content {
                 flex-direction: column;
@@ -516,15 +607,128 @@
     <!-- HERO SECTION -->
 
     <section class="hero" id="home">
+
         <div class="hero-content">
 
-            <div class="hero-brand">
-                NET<span>LINK</span>
+            <!-- CUSTOM NETLINK LOGO -->
+
+            <div class="hero-logo">
+
+                <svg
+                    viewBox="0 0 440 150"
+                    xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="NETLINK Internet Services"
+                >
+
+                    <defs>
+                        <linearGradient
+                            id="ringGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="100%"
+                        >
+                            <stop offset="0%" stop-color="#0641b5"/>
+                            <stop offset="100%" stop-color="#092c70"/>
+                        </linearGradient>
+
+                        <linearGradient
+                            id="linkGradient"
+                            x1="0%"
+                            y1="0%"
+                            x2="100%"
+                            y2="0%"
+                        >
+                            <stop offset="0%" stop-color="#0878f9"/>
+                            <stop offset="100%" stop-color="#0062db"/>
+                        </linearGradient>
+                    </defs>
+
+                    <!-- CURVED SEMI-CIRCLE RING -->
+
+                    <path
+                        d="
+                            M 35 106
+                            C 4 89, 14 58, 55 37
+                            C 101 12, 169 5, 225 21
+                            C 178 10, 118 19, 75 39
+                            C 40 56, 23 78, 43 96
+                            C 55 107, 77 111, 101 111
+                            C 73 115, 49 114, 35 106
+                            Z
+                        "
+                        fill="url(#ringGradient)"
+                    />
+
+                    <!-- MAIN NETLINK WORDMARK -->
+
+                    <text
+                        x="54"
+                        y="112"
+                        font-family="Arial, Helvetica, sans-serif"
+                        font-size="76"
+                        font-weight="900"
+                        font-style="italic"
+                        letter-spacing="-5"
+                        fill="#092c68"
+                    >NET</text>
+
+                    <text
+                        x="194"
+                        y="112"
+                        font-family="Arial, Helvetica, sans-serif"
+                        font-size="76"
+                        font-weight="900"
+                        font-style="italic"
+                        letter-spacing="-5"
+                        fill="url(#linkGradient)"
+                    >LINK</text>
+
+                    <!-- WIFI SIGNAL ABOVE THE LOGO -->
+
+                    <g
+                        fill="none"
+                        stroke="#0644c9"
+                        stroke-width="8"
+                        stroke-linecap="round"
+                    >
+
+                        <path d="M 190 17 Q 220 -9 250 17"/>
+
+                        <path d="M 199 29 Q 220 10 241 29"/>
+
+                        <path d="M 208 41 Q 220 30 232 41"/>
+
+                    </g>
+
+                    <!-- WIFI DOT -->
+
+                    <circle
+                        cx="220"
+                        cy="51"
+                        r="5"
+                        fill="#0644c9"
+                    />
+
+                    <!-- INTERNET SERVICES -->
+
+                    <text
+                        x="220"
+                        y="137"
+                        text-anchor="middle"
+                        font-family="Arial, Helvetica, sans-serif"
+                        font-size="19"
+                        font-weight="900"
+                        letter-spacing="3"
+                        fill="#071b55"
+                    >INTERNET SERVICES</text>
+
+                </svg>
+
             </div>
 
-            <div class="hero-tagline">
-                INTERNET SERVICES
-            </div>
+            <!-- HERO HEADING -->
 
             <h1>Reliable Internet. Connected Living.</h1>
 
@@ -540,6 +744,7 @@
             </a>
 
         </div>
+
     </section>
 
     <!-- SERVICES SECTION -->
@@ -555,7 +760,9 @@
 
             <div class="service-card">
                 <div class="icon">&#128246;</div>
+
                 <h3>Wi-Fi Hotspot</h3>
+
                 <p>
                     Convenient prepaid Wi-Fi access with
                     flexible internet packages and
@@ -565,7 +772,9 @@
 
             <div class="service-card">
                 <div class="icon">&#127968;</div>
+
                 <h3>Home Internet</h3>
+
                 <p>
                     Home internet subscription solutions
                     with customer accounts, package
@@ -575,7 +784,9 @@
 
             <div class="service-card">
                 <div class="icon">&#127970;</div>
+
                 <h3>Business Connectivity</h3>
+
                 <p>
                     Internet connectivity solutions for
                     businesses and other establishments
@@ -584,6 +795,7 @@
             </div>
 
         </div>
+
     </section>
 
     <!-- ABOUT SECTION -->
@@ -591,6 +803,7 @@
     <section class="about-section" id="about">
 
         <div class="about-content">
+
             <h2>About NETLINK Internet Services</h2>
 
             <p>
@@ -606,11 +819,15 @@
                 through flexible packages, digital payments
                 and efficient customer service.
             </p>
+
         </div>
 
         <div class="about-illustration">
+
             <div class="tower">&#128225;</div>
+
             <p>Connecting People Through Technology</p>
+
         </div>
 
     </section>
@@ -620,33 +837,47 @@
     <section class="contact-section" id="contact">
 
         <div class="contact-heading">
+
             <h2>Contact NETLINK</h2>
+
             <p>Interested in our internet services?</p>
+
         </div>
 
         <div class="contact-item">
+
             <span class="contact-icon">&#128205;</span>
+
             <span>Kenya</span>
+
         </div>
 
         <div class="contact-item">
+
             <span class="contact-icon">&#9993;</span>
+
             <span>
                 Email:<br>
+
                 <a href="mailto:nattyvybz@outlook.com">
                     nattyvybz@outlook.com
                 </a>
             </span>
+
         </div>
 
         <div class="contact-item">
+
             <span class="contact-icon">&#128222;</span>
+
             <span>
                 Phone:<br>
+
                 <a href="tel:+254106054661">
                     +254106054661
                 </a>
             </span>
+
         </div>
 
     </section>
@@ -656,6 +887,7 @@
 <!-- FOOTER -->
 
 <footer>
+
     <div class="footer-content">
 
         <p>
@@ -670,6 +902,7 @@
         </p>
 
     </div>
+
 </footer>
 
 </body>
